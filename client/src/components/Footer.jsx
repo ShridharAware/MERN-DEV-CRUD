@@ -6,7 +6,7 @@ const Footer = () => {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
         &copy; 2024 Copyright :
-        <a class="text-secondary text-decoration-none">MERN-CRUD</a>
+        <a className="text-secondary text-decoration-none">MERN-CRUD</a>
       </div>
     </>
   );
