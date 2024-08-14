@@ -1,16 +1,21 @@
+import axios from "axios";
 import { Card, Form, Row, Col, Button } from "react-bootstrap";
-const RegisterForm = ({ createStudent }) => {
+import { useParams, useNavigate } from "react-router-dom";
+const UpdateStudent = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = new FormData(e.target);
     const student = Object.fromEntries(response.entries());
-    await createStudent(student);
+    await axios.put(`http://localhost:5000/student/${id}`, student);
+    navigate("/");
   };
   return (
     <>
-      <Card className="w-75 mx-auto">
+      <Card className="w-75 mx-auto mt-5 mb-5">
         <Card.Header>
-          <h3 className="text-center">Student registration form</h3>
+          <h3 className="text-center">Update student</h3>
         </Card.Header>
         <Card.Body>
           <Form onSubmit={handleSubmit}>
@@ -44,7 +49,7 @@ const RegisterForm = ({ createStudent }) => {
                   type="submit"
                   style={{ marginTop: "31px", marginLeft: "30px" }}
                 >
-                  Submit
+                  Update
                 </Button>
                 <Button
                   variant="danger"
@@ -62,4 +67,4 @@ const RegisterForm = ({ createStudent }) => {
   );
 };
 
-export default RegisterForm;
+export default UpdateStudent;
