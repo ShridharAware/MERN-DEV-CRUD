@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Card, Form, Row, Col, Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const UpdateStudent = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -8,8 +9,13 @@ const UpdateStudent = () => {
     e.preventDefault();
     const response = new FormData(e.target);
     const student = Object.fromEntries(response.entries());
-    await axios.put(`http://localhost:5000/student/${id}`, student);
-    navigate("/");
+    try {
+      await axios.put(`http://localhost:5000/student/${id}`, student);
+      navigate("/");
+      toast.success("Student updated successfully!");
+    } catch (e) {
+      toast.error(e.message);
+    }
   };
   return (
     <>

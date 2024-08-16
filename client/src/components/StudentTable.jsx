@@ -6,7 +6,6 @@ const StudentTable = ({ data, deleteStudent }) => {
       <table className="table table-bordered w-75 mx-auto">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Age</th>
             <th>Gender</th>
@@ -17,7 +16,6 @@ const StudentTable = ({ data, deleteStudent }) => {
           {data.map((entry, index) => {
             return (
               <tr key={entry._id || index}>
-                <td>{entry._id}</td>
                 <td>{entry.name}</td>
                 <td>{entry.age}</td>
                 <td>{entry.gender}</td>
