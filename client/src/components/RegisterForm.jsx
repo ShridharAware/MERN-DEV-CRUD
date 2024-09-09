@@ -10,7 +10,7 @@ const RegisterForm = ({ createStudent }) => {
     <>
       <Card className="w-75 mx-auto">
         <Card.Header>
-          <h3 className="text-center">Student registration form</h3>
+          <h3 className="text-center">Registration form</h3>
         </Card.Header>
         <Card.Body>
           <Form onSubmit={handleSubmit}>
